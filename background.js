@@ -20,10 +20,25 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
   }
 
   var d = new Date();
-  var day = d.getUTCDate(); // Corrected method name
+  var day = d.getUTCDate();
   var month = d.getUTCMonth() + 1; // index starts at 0, so we have to add 1
   var year = d.getUTCFullYear();
 
-  suggest(year + '/' + month + '/' + day + '/' + item.filename, 'uniquify');
+  // Get the file extension
+  var fileExtension = item.filename.split('.').pop().toLowerCase();
+
+  // Define arrays to group file extensions
+  var extensionGroups = [
+    { extensions: ['jpeg', 'jpg', 'png'], folder: 'image' },
+    { extensions: ['mp4', 'mkv', 'avi', 'mov'], folder: 'video' },
+    { extensions: ['mp3', 'wav', 'ogg'], folder: 'audio' }
+    // Add more extension groups as needed
+  ];
+
+  // Find the corresponding folder for the file extension
+  var folder = extensionGroups.find(group => group.extensions.includes(fileExtension))?.folder || 'other';
+
+  // Include the folder information in the suggested filename
+  suggest(year + '/' + month + '/' + day + '/' + folder + '/' + item.filename, 'uniquify');
   return;
 });
