@@ -33,7 +33,9 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
   var extensionGroups = [
     { extensions: ['jpeg', 'jpg', 'png'], folder: 'image' },
     { extensions: ['mp4', 'mkv', 'avi', 'mov'], folder: 'video' },
-    { extensions: ['mp3', 'wav', 'ogg'], folder: 'audio' }
+    { extensions: ['mp3', 'wav', 'ogg'], folder: 'audio' },
+    { extensions: ['exe', 'dmg', 'app', 'pkg'], folder: 'apps' },
+    { extensions: ['doc', 'docx', 'pdf', 'txt', 'md'], folder: 'text' }
     // Add more extension groups as needed
   ];
 
