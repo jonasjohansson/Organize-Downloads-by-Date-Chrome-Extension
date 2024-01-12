@@ -1,6 +1,8 @@
 /**
 * Author: Lucas Bustamante
 * Website: https://www.lucasbustamante.com.br
+* Updated by: Jonas Johansson
+* Website: https://www.jonasjohansson.se
 */
 
 // Copyright (c) 2012 The Chromium Authors. All rights reserved.
