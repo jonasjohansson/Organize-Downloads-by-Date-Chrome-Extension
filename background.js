@@ -22,8 +22,8 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
   }
 
   var d = new Date();
-  var day = d.getUTCDate();
-  var month = d.getUTCMonth() + 1; // index starts at 0, so we have to add 1
+  var day = ('0' + d.getUTCDate()).slice(-2);
+  var month = ('0' + (d.getUTCMonth() + 1)).slice(-2); // index starts at 0, so we have to add 1
   var year = d.getUTCFullYear();
 
   // Get the file extension
@@ -35,7 +35,8 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
     { extensions: ['mp4', 'mkv', 'avi', 'mov'], folder: 'video' },
     { extensions: ['mp3', 'wav', 'ogg'], folder: 'audio' },
     { extensions: ['exe', 'dmg', 'app', 'pkg'], folder: 'apps' },
-    { extensions: ['doc', 'docx', 'pdf', 'txt', 'md'], folder: 'text' }
+    { extensions: ['doc', 'docx', 'pdf', 'txt', 'md'], folder: 'text' },
+    { extensions: ['zip', 'rar'], folder: 'archive' }
     // Add more extension groups as needed
   ];
 
